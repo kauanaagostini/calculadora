@@ -3,9 +3,19 @@ import './Button.css';
 
 const Button = (props) => {
   return (
-    <div>
-      <button className="button">{props.label}</button>
-    </div>
+    <>
+      <button
+        className={`
+          button
+          ${props.operation ? 'operation' : ''}
+          ${props.double ? 'double' : ''}
+          ${props.triple ? 'triple' : ''}
+        `}
+        onClick={e => props.click && props.click(props.label)}
+      >
+        {props.label}
+      </button>
+    </>
   )
 }
 
